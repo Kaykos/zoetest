@@ -1,12 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sebas
- * Date: 24/03/19
- * Time: 08:32 PM
- */
 
 namespace App;
+
+use GuzzleHttp\Client;
 
 class AgentMatcher
 {
@@ -23,7 +19,7 @@ class AgentMatcher
     public function __construct()
     {
         $this->contacts = DataLoader::getAssociativeArrayFromCSV(self::CONTACTS_FILENAME);
-        $this->Geocoding = new Geocoding();
+        $this->Geocoding = new Geocoding(new Client());
         $this->agent1 = ['zipcode' => null];
         $this->agent2 = ['zipcode' => null];
     }

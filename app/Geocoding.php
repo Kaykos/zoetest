@@ -30,9 +30,9 @@ class Geocoding
     const STATUS_OK = 'OK';
     const STATUS_NO_RESULTS = 'ZERO_RESULTS';
 
-    public function __construct()
+    public function __construct(Client $client)
     {
-        $this->client = new Client();
+        $this->client = $client;
         $this->apiUrl = env('GOOGLE_GEOCODING_API_URL');
         $this->apiKey = env('GOOGLE_GEOCODING_API_KEY');
     }
